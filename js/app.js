@@ -4,12 +4,21 @@ function alterarStatus(idJogo){
     let botao = jogoSelecionado.querySelector('.dashboard__item__button');
 
     if(imagem.classList.contains("dashboard__item__img--rented")){
+        confirmaDevolucao("devolver");
         imagem.classList.remove("dashboard__item__img--rented");
         botao.classList.remove("dashboard__item__button--return");
         botao.innerHTML = "Alugar";
     }else{
+        confirmaDevolucao("alugar");
         imagem.classList.add("dashboard__item__img--rented");
         botao.classList.add("dashboard__item__button--return");
         botao.innerHTML = "Devolver";  
     }
 }
+
+function confirmaDevolucao(acao){
+    let confirma = confirm("Deseja prosseguir para " + acao + " o jogo");
+    return confirma;
+}
+
+
